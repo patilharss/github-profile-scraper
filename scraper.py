@@ -8,10 +8,14 @@ def getDetails(username):
     r=requests.get(url)
     htmlContent=r.content
     soup=BeautifulSoup(htmlContent,'html.parser')
-    name=(soup.find('span',class_='p-name vcard-fullname d-block overflow-hidden').text)
-    username=soup.find('span',class_='p-nickname vcard-username d-block').text
-    imageurl=soup.find('img',class_='avatar avatar-user width-full border color-bg-primary').get('src')
-
+    try:
+        name=(soup.find('span',class_='p-name vcard-fullname d-block overflow-hidden').text)
+        username=soup.find('span',class_='p-nickname vcard-username d-block').text
+        imageurl=soup.find('img',class_='avatar avatar-user width-full border color-bg-primary').get('src')
+    except AttributeError:
+        return 'Enter valid username!'
+    except :
+        return 'Something went wrong!'
     #bio 
     if soup.find('div',class_='p-note user-profile-bio mb-3 js-user-profile-bio f4'):
         bio=(soup.find('div',class_='p-note user-profile-bio mb-3 js-user-profile-bio f4').text)
@@ -67,7 +71,8 @@ def getDetails(username):
     'organization':org,
     'pinned projects': projects}
         
-    return json.dumps(details,indent=4)
+    return dict(details)
 
-print(getDetails('patilharss'))
 
+
+print(getDetails('1748456554546444'))
