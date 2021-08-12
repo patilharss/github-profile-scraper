@@ -37,7 +37,69 @@
         />        
         <input type="submit" value="Calculate" id="calc_btn" />
         <br />
-        {{username}}
+{#jinja#}
+          {% if username is mapping %}
+              <div style="text-align:center;">
+
+              <img src={{ username.image }} style="width:150px;height:150x;">
+              <br>
+              name: {{ username.name }}
+              <br>
+                  user name: <a href={{ username.url }}>{{ username.username }}</a>
+              <br>
+              bio: {{ username.bio }}
+              <br>
+              works for : {{ username.worksfor }}
+              <br>
+              location : {{ username.location }}
+              <br>
+              {% if username.twitter != 'None' %}
+                  twitter : <a href={{ username.twitter }}>{{ username.twitter [20:] }}</a>
+              {% else %}
+                    twitter: None
+              {% endif %}
+              <br>
+              {% if username.link == 'None' %}
+                  website: None
+              {% else %}
+                  website: <a href={{ username.link}}>{{ username.link }}</a>
+              {% endif %}
+              <br>
+              followers: {{ username.follower }} , following: {{ username.following }}
+              <br>
+              stars: {{ username.star }}
+              <br>
+              Contribution Last Year: {{ username.contributionsinthelastyear }}
+              <br>
+
+
+              <div style="text-align:center;">
+              <div style="text-align:left; margin-left:220px">
+              <b>pinned projects:</b>
+              {% for name in username.pinnedprojects %}
+                    <li><span class="my-handle"></span><input type="hidden" name="handles[]" value="{{ name }}"/>{{ name }}</li>
+                {% endfor %}
+              </div>
+              </div>
+
+
+              <br>
+
+              <div style="text-align:center;">
+              <div style="text-align:left; margin-left:220px">
+              <b>Orgnizations:</b>
+              {% for k,v in username.organization.items() %}
+                    <li>{{ k }}: <a href={{ v }}>{{ v }}</a> </li>
+                {% endfor %}
+              </div>
+              </div>
+
+
+
+              </div>
+          {% else %}
+            "Please Enter valid username!"
+          {% endif %}
       </form>
     </div>
   </body>

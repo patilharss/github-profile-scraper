@@ -16,14 +16,15 @@ def getDetails(username):
         return 'Enter valid username!'
     except :
         return 'Something went wrong!'
-    #bio 
+    #bio
+    bio='None'
     if soup.find('div',class_='p-note user-profile-bio mb-3 js-user-profile-bio f4'):
         bio=(soup.find('div',class_='p-note user-profile-bio mb-3 js-user-profile-bio f4').text)
     # following and starts
     f=(soup.find('div',class_="flex-order-1 flex-md-order-none mt-2 mt-md-0").text)
     followdetails=((f.split()))
     #details
-    details={'homeLocation': None, 'url': None, 'twitter': None,'worksFor':None,'bio':None}
+    details={'homeLocation': 'None', 'url': 'None', 'twitter': 'None','worksFor':'None','bio':'None'}
     det=soup.find('ul',class_='vcard-details')
     for d in det.find_all('li'):
         
@@ -56,20 +57,22 @@ def getDetails(username):
     #     pinedprojectsinfo.append(" ".join(i.text.split()))
     # projects=(json.dumps(dict(zip(pinedpeojectstitle,pinedprojectsinfo)),indent=4))
     projects=pinedpeojectstitle
-    details={'name':"".join(name.split()),
-    'uername':"".join(username.split()),
+    details={
+    'profilelink':url,
+    'name':"".join(name.split()),
+    'username':"".join(username.split()),
     'image':imageurl,
     'bio':"".join(bio.split()),
-    'works for':details['worksFor'],
+    'worksfor':details['worksFor'],
     'location':details['homeLocation'],
     'twitter':details['twitter'],
     'link':details['url'],
     'follower':followdetails[0],
     'following':followdetails[3],
     'star':followdetails[-1],
-    'contributions in the last year':c.split()[0],
+    'contributionsinthelastyear':c.split()[0],
     'organization':org,
-    'pinned projects': projects}
+    'pinnedprojects': projects}
         
     return dict(details)
 

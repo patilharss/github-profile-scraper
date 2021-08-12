@@ -14,6 +14,8 @@ def submit():
         username=request.form['username']
         data=getDetails(str(username))
         print('----------------------------')
-        print(type(data))
+        print((data))
         return render_template('index.html',username=data)
 
+if __name__ == '__main__':
+    app.run(debug=True)
