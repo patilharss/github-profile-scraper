@@ -13,5 +13,6 @@ def submit():
     if request.method == 'POST':
         username=request.form['username']
         data=getDetails(str(username))
+        print(data)
         return render_template('index.html',username=data)
 

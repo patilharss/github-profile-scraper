@@ -45,7 +45,7 @@
               <br>
               name: {{ username.name }}
               <br>
-                  user name: <a href={{ username.url }}>{{ username.username }}</a>
+                  user name: <a href={{ username.profilelink }} target="_blank">{{ username.username }}</a>
               <br>
               bio: {{ username.bio }}
               <br>
@@ -54,7 +54,7 @@
               location : {{ username.location }}
               <br>
               {% if username.twitter != 'None' %}
-                  twitter : <a href={{ username.twitter }}>{{ username.twitter [20:] }}</a>
+                  twitter : <a href={{ username.twitter }} target="_blank">{{ username.twitter [20:] }}</a>
               {% else %}
                     twitter: None
               {% endif %}
@@ -75,10 +75,14 @@
 
               <div style="text-align:center;">
               <div style="text-align:left; margin-left:220px">
+              {% if username.pinnedprojects %}
               <b>pinned projects:</b>
               {% for name in username.pinnedprojects %}
-                    <li><span class="my-handle"></span><input type="hidden" name="handles[]" value="{{ name }}"/>{{ name }}</li>
+                    <li><span class="my-handle"></span><input type="hidden" name="handles[]" value="{{ name }}"/><a href="https://github.com/{{ username.username }}/{{ name }}" target="_blank">{{ name }}</a></li>
+
                 {% endfor %}
+              {% endif %}
+
               </div>
               </div>
 
