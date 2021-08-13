@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Github Scraper</title>
+    <title>GithubScraper</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
@@ -22,20 +22,20 @@
   </head>
   <body>
     <div class="container" style="text-align: center;">
-      <h3>Github Scraper App</h3>
+      <h3>Github Scraper</h3>
     </div>
 
     <!-- Form -->
     <div class="container">
       <form action="/submit" method="POST">
-        <label for="Number One">username</label>
+        <label for="Number One">Username</label>
         <input
           type="text"
           placeholder="username"
           class="u-full-width"
           name="username"
         />        
-        <input type="submit" value="Calculate" id="calc_btn" />
+        <input type="submit" value="GO!" id="calc_btn" />
         <br />
 {#jinja#}
           {% if username is mapping %}
