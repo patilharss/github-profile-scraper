@@ -87,14 +87,29 @@
 
               <div style="text-align:center;">
               <div style="text-align:left; margin-left:220px">
+
+              {% if username.organization.items() %}
               <b>Orgnizations:</b>
               {% for k,v in username.organization.items() %}
                     <li>{{ k }}: <a href={{ v }}>{{ v }}</a> </li>
                 {% endfor %}
+                  {% endif %}
               </div>
               </div>
+                  <div style="text-align:center;">
+                  <div>
+                  <b>Github Stats:</b>
+                    <div style="text-align:center;padding-top:30px">
+                  <img src="https://github-readme-stats.vercel.app/api?username={{ username.username }}&show_icons=true&theme=radical">
+                    </div>
+                  <div style="text-align:center;padding-top:30px">
+                  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ username.username }}&layout=compact">
+                    </div>
 
+                      </div>
+              </p>
 
+              </div>
 
               </div>
           {% else %}
