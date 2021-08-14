@@ -30,6 +30,8 @@ Start the server
   
 ## Demo
 
+![demo](https://github.com/patilharss/github-profile-scraper/blob/main/gif.gif)
+
 [![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=herku&logoColor=white )](https://github-profile-scraper.herokuapp.com/)
 
 or
