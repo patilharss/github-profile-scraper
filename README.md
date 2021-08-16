@@ -45,4 +45,4 @@ https://github-profile-scraper.herokuapp.com/
 
 
 ## Feedback 
-for any query patilharss@gmail.com
+for any query patilharss@gmail.com or ask [here](https://github.com/patilharss/patilharss/issues/1)
