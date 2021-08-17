@@ -83,4 +83,3 @@ def getDetails(username):
 
 
 
-print(getDetails('1748456554546444'))
