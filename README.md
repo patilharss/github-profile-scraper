@@ -43,6 +43,5 @@ https://github-profile-scraper.herokuapp.com/
 ## Support
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/harshpatil)
 
-
 ## Feedback 
 for any query patilharss@gmail.com or ask [here](https://github.com/patilharss/patilharss/issues/1)
