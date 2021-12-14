@@ -6,12 +6,17 @@ import json
 def getDetails(username):
     url=f'https://www.github.com/{username}/'
     r=requests.get(url)
+    # print(url)
     htmlContent=r.content
     soup=BeautifulSoup(htmlContent,'html.parser')
     try:
+        
         name=(soup.find('span',class_='p-name vcard-fullname d-block overflow-hidden').text)
-        username=soup.find('span',class_='p-nickname vcard-username d-block').text
-        imageurl=soup.find('img',class_='avatar avatar-user width-full border color-bg-primary').get('src')
+        # print(name)
+        username=(soup.find('span',class_='p-nickname vcard-username d-block').text)
+        # print(username)
+        imageurl=soup.find('img',class_='avatar avatar-user width-full border color-bg-default').get('src')
+        # print(imageurl)
 
         #bio
         bio='None'
@@ -58,8 +63,8 @@ def getDetails(username):
         #     pinedprojectsinfo.append(" ".join(i.text.split()))
         # projects=(json.dumps(dict(zip(pinedpeojectstitle,pinedprojectsinfo)),indent=4))
         projects=pinedpeojectstitle
-    except AttributeError:
-        return 'Enter valid username!'
+    # except AttributeError:
+    #     return 'Enter valid username!'
     except :
         return 'Something went wrong!'
     details={

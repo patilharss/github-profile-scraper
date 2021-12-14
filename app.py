@@ -4,7 +4,6 @@ app=Flask(__name__)
 
 @app.route('/')
 def main():
-    print('hello')
     return render_template("index.html")
 
 @app.route('/submit',methods=['POST'])
@@ -13,5 +12,6 @@ def submit():
     if request.method == 'POST':
         username=request.form['username']
         data=getDetails(str(username))
+        # print(data)
         return render_template('index.html',username=data)
 
