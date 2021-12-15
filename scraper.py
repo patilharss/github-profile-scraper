@@ -63,8 +63,8 @@ def getDetails(username):
         #     pinedprojectsinfo.append(" ".join(i.text.split()))
         # projects=(json.dumps(dict(zip(pinedpeojectstitle,pinedprojectsinfo)),indent=4))
         projects=pinedpeojectstitle
-    # except AttributeError:
-    #     return 'Enter valid username!'
+    except AttributeError:
+         return 'Enter valid username!'
     except :
         return 'Something went wrong!'
     details={
